@@ -1,11 +1,18 @@
 
 import datetime
+import random
 start_time = datetime.datetime.now()
 
 def insertion_sort(temp):
 
+    # Traverse through 1 to len(arr)
     for i in range(1, len(temp)):
+
         key = temp[i]
+
+        # Move elements of arr[0..i-1], that are
+        # greater than key, to one position ahead
+        # of their current position
         j = i- 1
         while j >= 0 and key < temp[j]:
             temp[j + 1] = temp[j]
@@ -18,6 +25,7 @@ def selection_sort(L):
     for i in range(len(L) - 1):
         min_index = i
         for j in range(i + 1, len(L) - 1):
+
             if L[j] < L[min_index]:
                 min_index = j
 
@@ -25,6 +33,26 @@ def selection_sort(L):
     print(L)
 
 #####################
+# def selectionSort(array):
+#     n = len(array)
+#     for i in range(n):
+#         # Initially, assume the first element of the unsorted part as the minimum.
+#         minimum = i
+#
+#         for j in range(i + 1, n):
+#             if (array[j] < array[minimum]):
+#                 # Update position of minimum element if a smaller element is found.
+#                 minimum = j
+#
+#         # Swap the minimum element with the first element of the unsorted part.
+#         temp = array[i]
+#         array[i] = array[minimum]
+#         array[minimum] = temp
+#
+#     return array
+
+#####################
+
 def bubble_sort(list1):
     count=len(list1)
     for i in range(count):
@@ -44,6 +72,7 @@ def merge_sort(myList):
 
         i = 0
         j = 0
+
         k = 0
 
         while i < len(left) and j < len(right):
@@ -65,12 +94,14 @@ def merge_sort(myList):
             j += 1
             k += 1
 
-
 def partition(arr, low, high):
-    i = (low-1)
-    pivot = arr[high]
+    i = (low-1)      # index of smaller element
+    pivot = arr[high]    # pivot
     for j in range(low, high):
+
+
         if arr[j] <= pivot:
+
             i = i+1
             arr[i], arr[j] = arr[j], arr[i]
 
@@ -83,6 +114,7 @@ def quick_sort(arr, low, high):
     if low < high:
 
         pi = partition(arr, low, high)
+
         quick_sort(arr, low, pi-1)
         quick_sort(arr, pi+1, high)
 
@@ -94,16 +126,33 @@ def calculateTime(start_time):
 
 def experimenta (aux):
 
-    arr1 =  [12, 121, 1733, 4435, 62342, 234]
-    arr2 =  [15, 225, 233, 9440, 155, 3446, 6, 9349, 10]
-    arr3 =  [217, 329, 1334, 5440, 4557, 4462, 2349, 72334, 31, 54, 240, 100]
-    arr4 =  [319, 124, 5330, 4436, 556, 9329, 1430, 1231, 103, 58, 98, 885, 52, 63, 214]
-    arr5 =  [817, 522, 6333, 244, 2558, 13246, 5338, 637, 94, 31, 43, 50, 84, 99, 761, 23, 37, 100]
-    arr6 =  [919, 120, 333, 4413, 5539, 1434, 504, 497, 2345, 2484, 60, 33, 88, 76, 101, 62, 591, 70, 1239, 29, 55]
-    arr7 =  [919, 210, 3311, 1443, 3559, 23414, 52340, 47, 25, 562, 93, 33, 55, 76, 101, 62, 531, 70, 916, 29, 55, 142]
-    arr8 =  [143, 120, 323, 4413, 5539, 1344, 52343, 4345, 25, 322, 20, 103, 88, 4164, 101, 62, 51, 70, 24, 29, 55, 234, 34, 94]
-    arr9 =  [919, 102, 333, 1444, 5536, 12344, 52340, 42347, 2235, 2, 90, 33, 88, 76, 101, 62, 51, 70, 9123, 29, 66123, 33, 65, 16, 68]
-    arr10 = [919, 120, 1331, 1443, 5539, 1234, 52340, 47, 1010,  25, 32, 90, 33, 88, 75, 101, 62, 51, 76, 319, 323, 55, 432, 965, 42, 73]
+
+    arr1 = []
+    arr2 = []
+    arr3 = []
+    arr4 = []
+    arr5 = []
+    arr6 =[]
+    arr7 = []
+    arr8 = []
+    arr9 = []
+    arr10 = []
+    print("number of array elements:")
+    x = input()
+    x = int(x)
+    for i in range(x):
+        n = random.randint(1000000, 10000000)
+        # arry.append(n)
+        arr1.append(n)
+        arr2.append(n)
+        arr3.append(n)
+        arr4.append(n)
+        arr5.append(n)
+        arr6.append(n)
+        arr7.append(n)
+        arr8.append(n)
+        arr9.append(n)
+        arr10.append(n)
 
     if aux == 'Insertion':
         print("Insertion sort algorithm:\n")
@@ -199,5 +248,6 @@ experimenta('Insertion')
 # experimenta('Selection')
 # experimenta('Bubble')
 # experimenta('Merge')
-# experimenta('Qui?ck')
+# experi15menta('Qui?ck')
+
 
